@@ -3,11 +3,7 @@ extends ../layout
 block content
   #shop-container
     h1 Btn de Cobro
-    form(action="/checkout", method="post")
-      .form-line
-        label(for="txtProductName") Product Name
-        input#txtProductName(type="text", name="txtProductName")
-        .clear
+    form(action="/btnCobro/checkout", method="post")      
       .form-line
         label(for="txtAmount") Amount
         input#txtAmount(type="number", min="1", name="txtAmount")

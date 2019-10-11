@@ -6,6 +6,12 @@ var btnCobro = new BtnCobro()
 
 router.get('/', function(req, res, next) {   
   btnCobro.index(req, res, next)
+  return res
+})
+
+router.post('/checkout', function(req, res, next) {   
+  btnCobro.checkout(req, res, next)
+  return res
 })
 
 module.exports = router
