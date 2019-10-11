@@ -1,0 +1,35 @@
+{
+  "name": "pf-implementacion-gw",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "test:server:coverage": "nyc node spec/specs.js"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "jade": "~1.11.0",
+    "morgan": "~1.9.1"
+  },
+  "devDependencies": {
+    "jasmine": "^3.5.0",
+    "jasmine-console-reporter": "^3.1.0",
+    "nyc": "^14.1.1"
+  },
+  "nyc": {
+    "report-dir": "./spec/istanbul/report",
+    "temp-dir": "./spec/istanbul",
+    "reporter": [
+      "text",
+      "text-summary",
+      "html"
+    ],
+    "exclude": [
+      "spec/**/*",
+      "server/*.spec.js"
+    ]
+  }
+}

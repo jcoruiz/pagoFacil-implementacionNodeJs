@@ -1,0 +1,34 @@
+extends ../layout
+
+block content
+  #shop-container
+    h1 Tienda node
+    form(action="/checkout", method="post")
+      .form-line
+        label(for="txtProductName") Product Name
+        input#txtProductName(type="text", name="txtProductName")
+        .clear
+      .form-line
+        label(for="txtAmount") Amount
+        input#txtAmount(type="number", min="1", name="txtAmount")
+        .clear
+      .form-line
+        label(for="txtEmailCliente") Email Cliente
+        input#txtEmailCliente(type="email", name="txtEmailCliente")
+        .clear
+      .form-line
+        label(for="txtReference") Numero orden
+        input#txtReference(type="text", name="txtReference")
+        .clear
+      .form-line
+        label(for="selCurrency") Currency
+        select#selCurrency(name="selCurrency")
+          option(value="CLP") CLP
+        .clear
+      .form-line
+        label(for="selCountry") Country
+        select#selCountry(name="selCountry")
+          option(value="CL") CL
+        .clear
+      .form-line
+        button.btnPay(type="submit") Pagar con Pago Facil
