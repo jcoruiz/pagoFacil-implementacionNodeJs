@@ -1,6 +1,7 @@
 var express = require('express')
 var router = express.Router()
 
+//Se importa controlador del ejemplo gwSpecifiq para implementar sus metodos de acuerdo a las rutas
 var gwSpecifiq = require('../app/http/gwSpecifiq/indexController')
 
 router.get('/', function(req, res, next) {   

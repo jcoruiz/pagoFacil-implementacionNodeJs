@@ -4,16 +4,19 @@ const crypto = require('crypto');
 class indexController {
 
     async index (req, res, next) {
+        //Solo rendereamos la pagina index
         res.render('gwAll/index', {})
     }
 
     async checkout (req, res, next) { 
-        
+        //Obtenemos los parametros del request
         var objRequest = req.body
 
+        //Obtenemos las variables de entorno
         var pf_token_id = process.env.PF_TOKEN_ID
         var pf_token_secret = process.env.PF_TOKEN_SECRET
 
+        //Creamos el objeto que solicita el initTransaction de Pago Facil
         var objCreateTransaction = {
             x_account_id: pf_token_id,
             x_amount:objRequest.txtAmount,
@@ -27,13 +30,17 @@ class indexController {
             x_session_id:'a0010010001'
         }    
 
+        //creamos la firma del objeto de la forma que solicita pago facil, para mas informacion ver
+        // https://apidocs.pagofacil.cl/proceso-de-firmado
         var sign = await this.signPayload(objCreateTransaction, pf_token_secret)
         objCreateTransaction.x_signature = sign
 
+        //Rendereamos un formulario que realiza el post a initTransaction de Pago Facil
         res.render('gwAll/checkout', {...objCreateTransaction})                                  
     }
 
-    async response (req, res, next) {        
+    async response (req, res, next) {      
+        //Procesamos la respuesta de pago facil y enviamos los valores a gwAll/response  
         var objResponse = {...req.body}
         objResponse.estado = req.query.status
         res.render('gwAll/response', {...objResponse})

@@ -1,6 +1,7 @@
 var express = require('express')
 var router = express.Router()
 
+//Se importa controlador del ejemplo gwAll para implementar sus metodos de acuerdo a las rutas
 var gwAll = require('../app/http/gwAll/indexController')
 
 router.get('/', function(req, res, next) {   

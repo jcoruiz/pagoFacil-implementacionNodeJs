@@ -21,6 +21,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//Se cargan los distintos routers para la pagina inicial y los ejemplos cargados
+// TODO: refactorizar el routeo en un archivo
 app.use('/', defaultRouter);
 app.use('/btnCobro/', btnCobroRouter);
 app.use('/gwAll/', gwAllRouter);

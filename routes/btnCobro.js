@@ -1,6 +1,7 @@
 var express = require('express')
 var router = express.Router()
 
+//Se importa controlador del ejemplo btnCobro para implementar sus metodos de acuerdo a las rutas
 var btnCobro = require('../app/http/btnCobro/indexController')
 
 router.get('/', function(req, res, next) {   
