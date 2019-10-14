@@ -51,4 +51,4 @@ class indexController {
         })                       
     }
 }
-module.exports = indexController;
+module.exports = new indexController;

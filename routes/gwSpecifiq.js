@@ -1,8 +1,7 @@
 var express = require('express')
 var router = express.Router()
 
-var GwSpecifiq = require('../app/http/gwSpecifiq/indexController')
-var gwSpecifiq = new GwSpecifiq()
+var gwSpecifiq = require('../app/http/gwSpecifiq/indexController')
 
 router.get('/', function(req, res, next) {   
     gwSpecifiq.index(req, res, next)

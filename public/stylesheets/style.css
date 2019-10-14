@@ -1,0 +1,25 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.form-line {
+  max-width: 500px;
+  margin-bottom: 5px;
+}
+
+.form-line input, .form-line select{
+  float: right;  
+}
+
+.form-line label{
+  float: left;
+}
+
+.clear{
+  clear: both;
+}

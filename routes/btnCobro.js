@@ -1,8 +1,7 @@
 var express = require('express')
 var router = express.Router()
 
-var BtnCobro = require('../app/http/btnCobro/indexController')
-var btnCobro = new BtnCobro()
+var btnCobro = require('../app/http/btnCobro/indexController')
 
 router.get('/', function(req, res, next) {   
   btnCobro.index(req, res, next)
