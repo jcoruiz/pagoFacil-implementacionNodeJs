@@ -2,8 +2,8 @@ extends ../layout
 
 block content
   #shop-container
-    h1 Tienda con  metodo de pago especifico
-    form(action="/checkout", method="post")
+    h1 Tienda node
+    form(action="/gwSpecifiq/checkout", method="post")
       .form-line
         label(for="txtProductName") Product Name
         input#txtProductName(type="text", name="txtProductName")
@@ -31,4 +31,12 @@ block content
           option(value="CL") CL
         .clear
       .form-line
-        button.btnPay(type="submit") Pagar con Pago Facil
+        label(for="selMedio") Medio de Pago
+        select#selMedio(name="selMedio")
+          option(value="WebPayPST") WebpayPlus
+          option(value="Khipu") Khipu
+          option(value="MultiCajaCupon") MultiCaja
+          option(value="Pago46") Pago46
+        .clear
+      .form-line
+        button.btnPay(type="submit") Pagar con Medio de Pago elegido

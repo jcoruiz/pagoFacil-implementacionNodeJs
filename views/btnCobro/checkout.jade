@@ -1,0 +1,13 @@
+extends ../layout
+
+block content
+  #shop-container
+    h1 Link de Transacción realizado
+    table
+      tr
+        th idTrx
+        th payUrl
+      tr
+        td #{idTrx}
+        td 
+          a(href="#{payUrl}") #{payUrl}

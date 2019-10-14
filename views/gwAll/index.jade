@@ -3,7 +3,7 @@ extends ../layout
 block content
   #shop-container
     h1 Tienda node
-    form(action="/checkout", method="post")
+    form(action="/gwAll/checkout", method="post")
       .form-line
         label(for="txtProductName") Product Name
         input#txtProductName(type="text", name="txtProductName")

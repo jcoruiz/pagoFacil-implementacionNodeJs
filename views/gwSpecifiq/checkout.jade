@@ -1,0 +1,21 @@
+extends ../layout
+
+block content
+  form(action="https://gw-dev.pagofacil.cl/initTransaction?method=#{medio_de_pago}", method="post", style="visibility:hidden")
+    input#x_account_id(type="text", name="x_account_id", value="#{x_account_id}")
+    input#x_amount(type="text", name="x_amount", value="#{x_amount}")
+    input#x_currency(type="text", name="x_currency", value="#{x_currency}")
+    input#x_reference(type="text", name="x_reference", value="#{x_reference}")
+    input#x_customer_email(type="text", name="x_customer_email", value="#{x_customer_email}")
+    input#x_url_complete(type="text", name="x_url_complete", value="#{x_url_complete}")
+    input#x_url_cancel(type="text", name="x_url_cancel", value="#{x_url_cancel}")
+    input#x_url_callback(type="text", name="x_url_callback", value="#{x_url_callback}")
+    input#x_signature(type="text", name="x_signature", value="#{x_signature}")
+    input#x_shop_country(type="text", name="x_shop_country", value="#{x_shop_country}")
+    input#x_session_id(type="text", name="x_session_id", value="#{x_session_id}")   
+    button#btnInitTransaction(type="submit")
+  
+  script.
+    document.addEventListener("DOMContentLoaded", function() {
+      document.getElementById('btnInitTransaction').click()
+    });
