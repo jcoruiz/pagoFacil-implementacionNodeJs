@@ -1,7 +1,7 @@
 extends ../layout
 
 block content
-  form(action="https://gw-dev.pagofacil.cl/initTransaction?method=#{medio_de_pago}", method="post", style="visibility:hidden")
+  form(action="#{pf_url_gw}/initTransaction?method=#{medio_de_pago}", method="post", style="visibility:hidden")
     input#x_account_id(type="text", name="x_account_id", value="#{x_account_id}")
     input#x_amount(type="text", name="x_amount", value="#{x_amount}")
     input#x_currency(type="text", name="x_currency", value="#{x_currency}")

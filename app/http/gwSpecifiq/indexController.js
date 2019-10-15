@@ -15,6 +15,7 @@ class indexController {
         //Obtenemos las variables de entorno
         var pf_token_id = process.env.PF_TOKEN_ID
         var pf_token_secret = process.env.PF_TOKEN_SECRET
+        var pf_url_gw = process.env.PF_URL_GW
 
         //Creamos el objeto que solicita el initTransaction de Pago Facil
         var objCreateTransaction = {
@@ -36,8 +37,10 @@ class indexController {
         objCreateTransaction.x_signature = sign
         objCreateTransaction.medio_de_pago = objRequest.selMedio
 
+        let objCheckout = {...objCreateTransaction}
+        objCheckout.pf_url_gw = pf_url_gw
         //Rendereamos un formulario que realiza el post a initTransaction de Pago Facil
-        res.render('gwSpecifiq/checkout', {...objCreateTransaction})                                  
+        res.render('gwSpecifiq/checkout', objCheckout)                                  
     }
 
     async response (req, res, next) { 

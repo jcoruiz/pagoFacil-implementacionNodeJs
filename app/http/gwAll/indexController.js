@@ -15,6 +15,7 @@ class indexController {
         //Obtenemos las variables de entorno
         var pf_token_id = process.env.PF_TOKEN_ID
         var pf_token_secret = process.env.PF_TOKEN_SECRET
+        var pf_url_gw = process.env.PF_URL_GW
 
         //Creamos el objeto que solicita el initTransaction de Pago Facil
         var objCreateTransaction = {
@@ -30,13 +31,15 @@ class indexController {
             x_session_id:'a0010010001'
         }    
 
-        //creamos la firma del objeto de la forma que solicita pago facil, para mas informacion ver
+        //creamos la firma del objeto de la forma que solicita Pago Fácil, para mas información ver
         // https://apidocs.pagofacil.cl/proceso-de-firmado
         var sign = await this.signPayload(objCreateTransaction, pf_token_secret)
         objCreateTransaction.x_signature = sign
 
-        //Rendereamos un formulario que realiza el post a initTransaction de Pago Facil
-        res.render('gwAll/checkout', {...objCreateTransaction})                                  
+        let objCheckout = {...objCreateTransaction}
+        objCheckout.pf_url_gw = pf_url_gw
+        //Rendereamos un formulario que realiza el post a initTransaction de Pago Fácil
+        res.render('gwAll/checkout', objCheckout)                                  
     }
 
     async response (req, res, next) {      

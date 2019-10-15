@@ -41,6 +41,8 @@ PF_API_URL= [Corresponde al endpoint de la api del portal Ej: https://api-dev.pg
 
 *Parametros necesarios para la derivacion al portal de pagos*
 
+PF_URL_GW= [Corresponde a la url del gw de Pago Fácil Ej: https://gw-dev.pagofacil.cl]
+
 PF_TOKEN_ID= [Corresponde al Token Service del servicio]
 
 PF_TOKEN_SECRET= [Corresponde al Token Secret del servicio]
